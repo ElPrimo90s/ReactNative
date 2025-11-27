@@ -61,7 +61,7 @@ export default function DonarScreen() {
 
           <Text style={styles.sectionTitle}>Más Necesitados Ahora</Text>
 
-          {/* Lista de medicamentos (estáticos por ahora) */}
+          {/* Lista de medicamentos  */}
           {[
             { name: "Paracetamol", tag: "Urgente", tagColor: "#e63946" },
             { name: "Insulina", tag: "Alta demanda", tagColor: "#f77f00" },

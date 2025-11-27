@@ -42,8 +42,40 @@ const LocationItem = ({ location }) => (
 const BuscarScreen = () => {
   const [activeTab, setActiveTab] = useState('Lista');
   const [searchText, setSearchText] = useState('');
-  const [locations, setLocations] = useState(initialLocations); // En un proyecto real, esto vendría de una API
+  const [locations, setLocations] = useState(initialLocations); 
 
+
+  // Lógica para cargar las ubicaciones desde la API 
+    //useEffect(() => {
+        // 
+        // CONEXIÓN API (Comentado)
+        //
+        /*
+        const loadLocations = async () => {
+            setLoading(true);
+            try {
+                // DESCOMENTAR: Asegúrate de que tu ApiService.js exporta la función apiGetLocations
+                // const data = await apiGetLocations(); 
+                // setLocations(data);
+
+                // TEMPORAL: SIMULACIÓN DE CARGA LENTA
+                await new Promise(resolve => setTimeout(resolve, 1500)); 
+                setLocations(initialLocations);
+                // -------------------------------------------
+
+            } catch (error) {
+                // console.error("Error al cargar ubicaciones desde API:", error);
+                // setLocations([]); 
+            } finally {
+                setLoading(false);
+            }
+        };
+        // loadLocations();
+        */
+        // ------------------------------------------------------------------
+        // FIN DEL CÓDIGO DE CONEXIÓN API
+        // ------------------------------------------------------------------
+   // }, []);
   const renderContent = () => {
     if (activeTab === 'Mapa') {
       return (
@@ -177,9 +209,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#f7f7f7',
   },
 
-  // 1. Header con Degradado
+  
   headerGradient: {
-    paddingTop: 50, // Espacio para la barra de estado
+    paddingTop: 50, 
     paddingBottom: 25,
     paddingHorizontal: 20,
   },
@@ -198,11 +230,11 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
-  // 2. Barra de Búsqueda
+  
   searchBarContainer: {
     flexDirection: 'row',
     paddingHorizontal: 20,
-    marginTop: -20, // Superposición con el header
+    marginTop: -20, 
     zIndex: 10,
     marginBottom: 10,
   },
@@ -246,7 +278,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#f0f4ff', // Azul muy claro
+    backgroundColor: '#f0f4ff', 
     marginHorizontal: 20,
     padding: 15,
     borderRadius: 12,
@@ -298,7 +330,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   mapTabButton: {
-    marginLeft: -10, // Para superponer ligeramente el borde
+    marginLeft: -10, 
   },
   tabText: {
     fontSize: 16,
@@ -318,7 +350,7 @@ const styles = StyleSheet.create({
   mapContainer: {
     backgroundColor: 'white',
     borderRadius: 12,
-    height: screenWidth * 0.9, // Altura relativa
+    height: screenWidth * 0.9, 
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 10,

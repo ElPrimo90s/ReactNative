@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { FontAwesome5, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
-// Componente para las métricas pequeñas
+
 const MetricCard = ({ iconName, value, label, color }) => (
   <View style={styles.metricCard}>
     <View style={[styles.iconContainer, { backgroundColor: color + '20' }]}>
@@ -13,9 +13,9 @@ const MetricCard = ({ iconName, value, label, color }) => (
   </View>
 );
 
-// Componente modificado para la navegación
+
 const ActionCard = ({ iconName, title, subtitle, color, isNew = false, onPress }) => (
-  // El onPress ahora recibe la función de navegación
+  
   <TouchableOpacity style={styles.actionCard} onPress={onPress}> 
     <View style={[styles.actionIcon, { backgroundColor: color + '20' }]}>
       <MaterialIcons name={iconName} size={30} color={color} />
@@ -32,7 +32,7 @@ const ActionCard = ({ iconName, title, subtitle, color, isNew = false, onPress }
 );
 
 
-// 🌟 AQUÍ RECIBIMOS LA PROP 'navigation' 🌟
+
 export default function DashboardScreen({ navigation }) { 
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.contentContainer}>
@@ -131,16 +131,16 @@ export default function DashboardScreen({ navigation }) {
   );
 }
 
-// ... Estilos (los mismos que antes) ...
+
 const styles = StyleSheet.create({
-  // ... (Copiar los estilos del código anterior aquí) ...
+  
   screen: {
     flex: 1,
     backgroundColor: '#fff',
   },
   contentContainer: {
     padding: 20,
-    paddingTop: 50, // Espacio para el notch/barra de estado
+    paddingTop: 50, 
   },
   headerTitle: {
     fontSize: 24,

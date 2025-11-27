@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons';
+// import { apiLoginUser } from './ApiService';
 
-// --- Componente de Campo de Contraseña Reutilizable ---
+
 const PasswordInput = ({ value, onChangeText }) => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
 
@@ -25,15 +26,42 @@ const PasswordInput = ({ value, onChangeText }) => {
   );
 };
 
-// --- Componente Principal: LoginScreen ---
+
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = () => {
-    console.log('Iniciando sesión con:', email);
-    // Aquí iría la lógica de autenticación
-     navigation.navigate('Tabs');
+  const handleLogin = async () => {
+    if (!email || !password) {
+      Alert.alert("Error", "Por favor, ingresa correo y contraseña.");
+      return;
+    }
+    setLoading(true);
+    try {
+      // 
+      // CONEXIÓN API 
+      // 
+      /*
+      const user = await apiLoginUser(email, password);
+      console.log("Usuario autenticado:", user);
+      
+      // Éxito: Navegar a la aplicación principal
+      navigation.replace('Tabs');
+      */
+      // 
+      // 
+      // 
+
+      // Lógica de simulación temporal:
+      Alert.alert("Simulación", "Login (API PHP) simulado. Navegando a Tabs.");
+      navigation.replace('Tabs'); 
+      
+    } catch (error) {
+      
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -102,7 +130,7 @@ const LoginScreen = ({ navigation }) => {
 
 export default LoginScreen;
 
-// --- StyleSheet (Compartido) ---
+
 const primaryColor = '#4a148c'; // Morado oscuro
 const secondaryColor = '#673ab7'; // Morado medio
 
@@ -142,7 +170,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   
-  // Contenido de la Tarjeta
+ 
   scrollContent: {
     paddingTop: 230,
     paddingHorizontal: 20,
@@ -172,7 +200,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
 
-  // Inputs
+  
   inputGroup: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -195,7 +223,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
 
-  // Botones
+  
   primaryButton: {
     backgroundColor: secondaryColor,
     padding: 15,
@@ -224,7 +252,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  // Enlaces y Texto
+  
   linkText: {
     fontSize: 15,
     fontWeight: '600',

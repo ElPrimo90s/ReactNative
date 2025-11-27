@@ -2,17 +2,17 @@ import React from 'react';
 import { ScrollView, View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
-// --- Datos Simulados ---
+
 const user = {
   name: "christophervengador",
   email: "christophervengador@gmail.com",
   memberSince: "Oct 2024",
-  profilePic: 'https://via.placeholder.com/70/D32F2F/FFFFFF?text=CV', // Reemplazar con URL real
+  profilePic: 'https://via.placeholder.com/70/D32F2F/FFFFFF?text=CV', 
   donations: 47,
   peopleHelped: 128,
   consultations: 5,
   currentLevel: "Oro",
-  nextLevelProgress: 70, // % de progreso al siguiente nivel
+  nextLevelProgress: 70, 
   donationsToNextLevel: 25,
 };
 
@@ -38,11 +38,11 @@ const achievements = [
 ];
 
 
-// --- Componente Principal ---
+
 
 const PerfilScreen = ({ navigation }) => {
   
-  // Función auxiliar para renderizar el menú
+ 
   const renderMenuItem = (item, index, array) => (
     <TouchableOpacity key={item.id} style={[styles.menuItem, index === array.length - 1 && styles.lastMenuItem]} onPress={() => console.log(item.title)}>
       <View style={styles.menuIconContainer}>
@@ -56,7 +56,7 @@ const PerfilScreen = ({ navigation }) => {
     </TouchableOpacity>
   );
 
-  // Función auxiliar para renderizar un logro
+
   const renderAchievement = (item) => (
     <View key={item.id} style={styles.achievementItem}>
       <View style={[styles.achievementIcon, { backgroundColor: item.unlocked ? item.color : '#f5f5f5' }]}>
@@ -94,7 +94,7 @@ const PerfilScreen = ({ navigation }) => {
         </View>
         <TouchableOpacity 
         style={styles.editButton} 
-        onPress={() => navigation.navigate('EditarScreen')} // <-- Llama a la navegación
+        onPress={() => navigation.navigate('EditarScreen')} 
     >
         <Text style={styles.editButtonText}>Editar Perfil</Text>
     </TouchableOpacity>
@@ -186,10 +186,10 @@ const PerfilScreen = ({ navigation }) => {
 };
 
 
-// --- StyleSheet ---
+
 
 const styles = StyleSheet.create({
-  // Contenedores Base
+  
   container: {
     flex: 1,
     backgroundColor: '#f7f7f7',
@@ -203,11 +203,11 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 4,
-    elevation: 3, // Android
+    elevation: 3, 
     marginBottom: 10,
   },
   
-  // Encabezado
+  
   headerContainer: {
     padding: 20,
     paddingBottom: 10,
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
 
-  // Tarjeta de Perfil
+  
   profileInfo: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -275,7 +275,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   
-  // Impacto Social
+ 
   impactCard: {
     backgroundColor: '#e8f5e9', 
   },
@@ -344,7 +344,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 
-  // Actividad Reciente
   activityTitle: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -380,7 +379,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
-  // Menú de Opciones
+  
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -407,7 +406,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 
-  // Logros Desbloqueados
+  
   achievementsCard: {
     backgroundColor: '#fffde7', 
     borderColor: '#ffcc80',
@@ -447,7 +446,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   
-  // Botón de Cerrar Sesión
+  
   logoutButton: {
     backgroundColor: '#ffebee', 
     borderColor: '#e57373',

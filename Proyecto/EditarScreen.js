@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { ScrollView, View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, FontAwesome5 } from '@expo/vector-icons';
-// Si usas React Native sin Expo Go, necesitarías instalar 'react-native-picker-select' o similar.
-// Para simplicidad, simularemos el Picker con un TextInput y un ícono.
+
 
 const EditarScreen = ({ navigation }) => {
-  // Estado para los campos del formulario
+  
   const [nombre, setNombre] = useState('christophervengador');
   const [edad, setEdad] = useState('28');
   const [ciudad, setCiudad] = useState('Ciudad de México');
@@ -13,14 +12,13 @@ const EditarScreen = ({ navigation }) => {
   const [email, setEmail] = useState('christophervengador@gmail.com');
   const [telefono, setTelefono] = useState('+52 123 456 7890');
   
-  // URL de la imagen de perfil simulada
+  
   const profilePicUrl = 'https://via.placeholder.com/100/D32F2F/FFFFFF?text=CV'; 
 
   const handleGuardarCambios = () => {
-    // Aquí iría la lógica para enviar los datos a la API
+    
     console.log('Guardando cambios:', { nombre, edad, ciudad, tipoSangre, email, telefono });
-    // Después de guardar, puedes volver a la pantalla anterior:
-    // navigation.goBack();
+   
   };
 
   return (
@@ -80,7 +78,7 @@ const EditarScreen = ({ navigation }) => {
             <TextInput
                 style={styles.pickerText}
                 value={tipoSangre}
-                editable={false} // Se supone que esto abriría un Picker
+                editable={false} 
             />
             <MaterialCommunityIcons name="chevron-down" size={24} color="#555" />
           </View>
@@ -126,7 +124,7 @@ const EditarScreen = ({ navigation }) => {
 
 export default EditarScreen;
 
-// --- StyleSheet para EditarScreen.js ---
+
 
 const styles = StyleSheet.create({
   container: {
@@ -148,7 +146,7 @@ const styles = StyleSheet.create({
   screenTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#4a90e2', // Color principal morado/azul del encabezado
+    color: '#4a90e2', 
   },
   screenSubtitle: {
     fontSize: 14,
@@ -159,7 +157,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   
-  // Foto de Perfil
+
   profileSection: {
     alignItems: 'center',
     paddingVertical: 30,
@@ -196,7 +194,7 @@ const styles = StyleSheet.create({
     color: '#999',
   },
   
-  // Formulario
+  
   card: {
     backgroundColor: 'white',
     borderRadius: 12,
@@ -230,7 +228,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   
-  // Campo Tipo de sangre (simulación de Picker)
+  
   pickerInput: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -247,7 +245,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 
-  // Botón de Guardar
+  
   saveButtonContainer: {
     position: 'absolute',
     bottom: 0,
@@ -265,7 +263,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   saveButton: {
-    backgroundColor: '#4a90e2', // Color morado/azul
+    backgroundColor: '#4a90e2', 
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',

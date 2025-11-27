@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 
-// --- Componente de Campo de Contraseña Reutilizable ---
+
 const PasswordInput = ({ placeholder, value, onChangeText, isConfirm }) => {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
 
@@ -34,15 +34,43 @@ const RegisterScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleRegister = () => {
-    if (password !== confirmPassword) {
-      alert("Las contraseñas no coinciden.");
+  const handleRegister = async () => {
+    if (!name || !email || !password || !confirmPassword) {
+      Alert.alert("Error", "Por favor, completa todos los campos.");
       return;
     }
-    console.log('Registrando usuario:', name, email);
-    // Lógica para registro y navegación a Dashboard
-    // navigation.navigate('Tabs');
+    if (password !== confirmPassword) {
+      Alert.alert("Error", "Las contraseñas no coinciden.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      // 
+      // CONEXIÓN API 
+      // 
+      /*
+      const result = await apiRegisterUser(name, email, password);
+      
+      Alert.alert("Éxito", result.message || "Cuenta creada con éxito.");
+      // Éxito: Navegar a la aplicación principal
+      navigation.replace('Tabs');
+      */
+      // 
+      // 
+      // 
+
+      // Lógica de simulación temporal:
+      Alert.alert("Simulación", "Registro (API PHP) simulado. Navegando a Tabs.");
+      navigation.replace('Tabs'); 
+      
+    } catch (error) {
+      
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -132,7 +160,7 @@ const RegisterScreen = ({ navigation }) => {
 
 export default RegisterScreen;
 
-// --- StyleSheet (Compartido) ---
+
 const primaryColor = '#4a148c'; 
 const secondaryColor = '#673ab7'; 
 

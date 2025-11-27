@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, View, Text, Image, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { MaterialCommunityIcons, AntDesign, FontAwesome } from '@expo/vector-icons';
 
-// --- Datos Simulados ---
+
 const specialties = ["Todos", "Medicina General", "Pediatría", "Cardiología", "Dermatología", "Nutrición"];
 
 const doctorsData = [
@@ -15,7 +15,7 @@ const doctorsData = [
     yearsExp: 15,
     nextAvailable: "Hoy 16:00",
     modality: "Virtual",
-    imageUrl: 'https://via.placeholder.com/60/00796b/FFFFFF?text=CR', // Reemplazar con URL de imagen real
+    imageUrl: 'https://via.placeholder.com/60/00796b/FFFFFF?text=CR', 
     isAvailable: true,
   },
   {
@@ -45,7 +45,7 @@ const doctorsData = [
 ];
 
 
-// --- Componente para las Tarjetas de Doctor ---
+
 
 const DoctorCard = ({ doctor }) => {
   const isAvailableToday = doctor.nextAvailable.startsWith('Hoy');
@@ -97,7 +97,7 @@ const DoctorCard = ({ doctor }) => {
   );
 };
 
-// --- Componente Principal ---
+
 
 const ConsultaScreen = () => {
   const [activeSpecialty, setActiveSpecialty] = useState('Todos');
@@ -131,7 +131,7 @@ const ConsultaScreen = () => {
         </View>
       </View>
 
-      {/* 2. Menú de Especialidades */}
+      {/*  Menú de Especialidades */}
       <View style={styles.specialtiesContainer}>
         <FlatList
           horizontal
@@ -159,7 +159,7 @@ const ConsultaScreen = () => {
         />
       </View>
 
-      {/* 3. Tarjeta de Consultas Gratuitas */}
+      {/*  Tarjeta de Consultas Gratuitas */}
       <View style={styles.freeConsultCard}>
         <MaterialCommunityIcons name="heart-pulse" size={30} color="#00c853" />
         <View style={{ marginLeft: 15 }}>
@@ -170,7 +170,7 @@ const ConsultaScreen = () => {
         </View>
       </View>
       
-      {/* 4. Lista de Doctores */}
+      {/*  Lista de Doctores */}
       <View style={styles.doctorsListHeader}>
         <Text style={styles.doctorsCount}>{filteredDoctors.length} Doctores</Text>
         <Text style={styles.availableTodayText}>Disponibles hoy</Text>
@@ -178,7 +178,7 @@ const ConsultaScreen = () => {
 
       {filteredDoctors.map(doctor => <DoctorCard key={doctor.id} doctor={doctor} />)}
 
-      {/* 5. Tarjeta de Reclutamiento de Voluntarios */}
+      {/*  Tarjeta de Reclutamiento de Voluntarios */}
       <View style={styles.volunteerCard}>
         <MaterialCommunityIcons name="stethoscope" size={36} color="white" />
         <Text style={styles.volunteerTitle}>¿Eres médico?</Text>
@@ -198,7 +198,7 @@ const ConsultaScreen = () => {
 };
 
 
-// --- StyleSheet ---
+
 
 const styles = StyleSheet.create({
   container: {
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f7f7f7',
   },
 
-  // 1. Encabezado y Estadísticas
+  
   header: {
     backgroundColor: '#00c853', // Verde principal
     paddingTop: 50,
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   
-  // 2. Menú de Especialidades
+  
   specialtiesContainer: {
     paddingVertical: 10,
     backgroundColor: '#333740', // Fondo oscuro como en la imagen para el scrollbar
@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
-  // 3. Tarjeta de Consultas Gratuitas
+  
   freeConsultCard: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -309,7 +309,7 @@ const styles = StyleSheet.create({
     flexShrink: 1,
   },
   
-  // 4. Lista de Doctores - Header
+ 
   doctorsListHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
     color: '#00c853', // Verde
   },
 
-  // 5. Tarjeta de Doctor
+ 
   doctorCard: {
     backgroundColor: 'white',
     marginHorizontal: 15,
@@ -442,7 +442,7 @@ const styles = StyleSheet.create({
     color: '#00c853',
   },
 
-  // 6. Tarjeta de Reclutamiento
+ 
   volunteerCard: {
     backgroundColor: '#4a90e2', // Fondo azul vibrante
     padding: 20,

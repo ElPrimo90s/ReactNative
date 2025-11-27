@@ -17,7 +17,7 @@ import RegisterScreen from './RegisterScreen';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-// --- Tab Navigator con tus pantallas ---
+// --- Tab Navigator de pantallas ---
 function MyTabs() {
   return (
     <Tab.Navigator
@@ -47,38 +47,38 @@ function MyTabs() {
   );
 }
 
-// --- Stack Principal ---
+
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        // 1. CAMBIO PRINCIPAL: Inicia la app en la pantalla de Login
+        // 1.  Inicia la app en la pantalla de Login
         initialRouteName="LoginScreen" 
         screenOptions={{
-          // Ocultamos el header por defecto para todas las pantallas de autenticación/tabs
+          
           headerShown: false, 
-          // Manteniendo tus estilos originales como respaldo si usaras headerShown: true
+          
           headerStyle: { backgroundColor: '#28a745' },
           headerTintColor: '#fff',
         }}
       >
         
         {/* =================================================== */}
-        {/* 1. PANTALLAS DE AUTENTICACIÓN (Nivel Superior) */}
+        {/* PANTALLAS DE AUTENTICACIÓN  */}
         {/* =================================================== */}
         <Stack.Screen 
             name="LoginScreen" 
             component={LoginScreen}
-            options={{ headerShown: false }} // Asegura que no tenga el header de la pila
+            options={{ headerShown: false }} 
         />
         <Stack.Screen 
             name="RegisterScreen" 
             component={RegisterScreen}
-            options={{ headerShown: false }} // Asegura que no tenga el header de la pila
+            options={{ headerShown: false }} 
         />
 
         {/* =================================================== */}
-        {/* 2. PANTALLA PRINCIPAL (Tabs) */}
+        {/* PANTALLA PRINCIPAL */}
         {/* =================================================== */}
         <Stack.Screen 
           name="Tabs"
@@ -86,7 +86,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         
-        {/* 3. PANTALLAS MODALES/DE EDICIÓN (Nivel Superior) */}
+        {/*PANTALLAS MODALES/DE EDICIÓN  */}
         <Stack.Screen 
           name="EditarScreen" 
           component={EditarScreen} 

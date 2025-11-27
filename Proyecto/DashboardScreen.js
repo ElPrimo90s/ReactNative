@@ -31,6 +31,7 @@ const ActionCard = ({ iconName, title, subtitle, color, isNew = false, onPress }
   </TouchableOpacity>
 );
 
+
 // 🌟 AQUÍ RECIBIMOS LA PROP 'navigation' 🌟
 export default function DashboardScreen({ navigation }) { 
   return (
@@ -84,8 +85,47 @@ export default function DashboardScreen({ navigation }) {
         title="Buscar Medicamentos" 
         subtitle="Encuentra medicinas cerca de ti" 
         color="#6f42c1"
-        onPress={() => navigation.navigate('Buscar')}
+        onPress={() => navigation.navigate('Ubicaciones')}
       />
+
+      <Text style={styles.sectionTitle}>Medicamentos más necesitados</Text>
+
+<View style={styles.medCard}>
+  <View style={{ flex: 1 }}>
+    <Text style={styles.medName}>Paracetamol</Text>
+    <Text style={styles.medDesc}>Analgésico - 500mg</Text>
+    <Text style={styles.medCollected}>Recolectado: 45% - 450/1000 unidades</Text>
+    <View style={styles.progressBar}>
+      <View style={[styles.progressFill, { width: '45%' }]} />
+    </View>
+  </View>
+  <Text style={styles.badgeUrgent}>Urgente</Text>
+</View>
+
+<View style={styles.medCard}>
+  <View style={{ flex: 1 }}>
+    <Text style={styles.medName}>Insulina</Text>
+    <Text style={styles.medDesc}>Diabetes - Varias dosis</Text>
+    <Text style={styles.medCollected}>Recolectado: 67% - 201/300 unidades</Text>
+    <View style={styles.progressBar}>
+      <View style={[styles.progressFill, { width: '67%' }]} />
+    </View>
+  </View>
+  <Text style={styles.badgeHigh}>Alta demanda</Text>
+</View>
+
+{/* Tarjeta de Únete a la comunidad */}
+<View style={styles.joinCard}>
+  <MaterialCommunityIcons name="account-group" size={60} color="#ff9800" />
+  <Text style={styles.joinTitle}>Únete a la Comunidad</Text>
+  <Text style={styles.joinSubtitle}>
+    Más de 15,000 personas ya están ayudando a cambiar vidas
+  </Text>
+
+  <TouchableOpacity style={styles.joinButton}>
+    <Text style={{ color: 'white', fontWeight: 'bold' }}>Empezar a Ayudar</Text>
+  </TouchableOpacity>
+</View>
 
     </ScrollView>
   );
@@ -226,5 +266,111 @@ const styles = StyleSheet.create({
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 5,
-  }
+  },
+
+  sectionTitle: {
+  fontSize: 18,
+  fontWeight: 'bold',
+  color: '#333',
+  marginTop: 30,
+  marginBottom: 10,
+},
+
+medCard: {
+  backgroundColor: '#fff',
+  borderRadius: 10,
+  padding: 15,
+  marginBottom: 15,
+  borderWidth: 1,
+  borderColor: '#eee',
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+},
+
+medName: {
+  fontSize: 16,
+  fontWeight: 'bold',
+  color: '#333',
+},
+
+medDesc: {
+  fontSize: 13,
+  color: '#666',
+  marginBottom: 5,
+},
+
+medCollected: {
+  fontSize: 12,
+  color: '#444',
+  marginBottom: 6,
+},
+
+progressBar: {
+  width: '100%',
+  height: 6,
+  backgroundColor: '#ddd',
+  borderRadius: 5,
+  overflow: 'hidden',
+},
+
+progressFill: {
+  height: '100%',
+  backgroundColor: '#28a745',
+},
+
+badgeUrgent: {
+  backgroundColor: '#ff6f6f',
+  color: 'white',
+  paddingHorizontal: 8,
+  paddingVertical: 3,
+  borderRadius: 5,
+  fontSize: 10,
+  marginLeft: 10,
+  fontWeight: 'bold',
+},
+
+badgeHigh: {
+  backgroundColor: '#ff9800',
+  color: 'white',
+  paddingHorizontal: 8,
+  paddingVertical: 3,
+  borderRadius: 5,
+  fontSize: 10,
+  marginLeft: 10,
+  fontWeight: 'bold',
+},
+
+joinCard: {
+  backgroundColor: '#fffaf0',
+  borderRadius: 10,
+  padding: 20,
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderWidth: 1,
+  borderColor: '#ffe1b5',
+  marginTop: 15,
+  marginBottom: 20,
+},
+
+joinTitle: {
+  marginTop: 10,
+  fontSize: 16,
+  fontWeight: 'bold',
+  color: '#333',
+},
+
+joinSubtitle: {
+  fontSize: 13,
+  color: '#666',
+  textAlign: 'center',
+  marginVertical: 10,
+},
+
+joinButton: {
+  backgroundColor: '#ff9800',
+  paddingHorizontal: 20,
+  paddingVertical: 10,
+  borderRadius: 8,
+}
+
 });
